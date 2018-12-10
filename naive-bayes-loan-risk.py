@@ -21,10 +21,11 @@ previsores[:,3] = labelencoder.fit_transform(previsores[:,3])
 # importar naive bayes           
 from sklearn.naive_bayes import GaussianNB
 classificador = GaussianNB()
-# gera a tabela de probabilidade
+# gera a tabela de probabilidade (treinamento do algoritmo)
 classificador.fit(previsores, classe)
 # história boa, dívida alta, garantias nenhuma, renda > 35
 # história ruim, dívida alta, garantias adequada, renda < 15
+# estimativas de probabilidade de novos registos
 resultado = classificador.predict([[0,0,1,2], [3, 0, 0, 0]])
 print(classificador.classes_)
 print(classificador.class_count_)
